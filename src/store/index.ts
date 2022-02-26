@@ -2,11 +2,18 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    name: ''
   },
   mutations: {
+    setCharacterName (state, val) {
+      state.name = val
+    }
   },
-  actions: {
+  getters: {
+    characterName (state) {
+      return state.name
+    }
   },
-  modules: {
-  }
+  actions: {},
+  modules: {}
 })
