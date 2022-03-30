@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onUpdated, ref } from 'vue'
+import { computed, defineComponent, onMounted, onUpdated, ref } from 'vue'
 import { useStore } from 'vuex'
 
 export default defineComponent({
@@ -48,6 +48,10 @@ export default defineComponent({
       emit('update:isInputInvalid', isNameInvalid.value)
     }
 
+    onMounted(() => {
+      characterName.value = store.getters.characterName
+    })
+
     onUpdated(() => {
       setCharacterName(characterName.value)
       setWarningMessage()
@@ -80,6 +84,3 @@ export default defineComponent({
   }
 }
 </style>
-
-function emit(arg0: string, arg1: boolean) { throw new Error('Function not
-implemented.') }
