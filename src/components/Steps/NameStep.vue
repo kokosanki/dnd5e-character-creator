@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onUpdated, ref } from 'vue'
+import { computed, defineComponent, onMounted, onUpdated, ref } from 'vue'
 import { useStore } from 'vuex'
 
 export default defineComponent({
@@ -47,6 +47,10 @@ export default defineComponent({
     const toggleNextButton = () => {
       emit('update:isInputInvalid', isNameInvalid.value)
     }
+
+    onMounted(() => {
+      characterName.value = store.getters.characterName
+    })
 
     onUpdated(() => {
       setCharacterName(characterName.value)
