@@ -34,7 +34,7 @@ export default defineComponent({
     })
 
     const isNameTooLong = computed(() => {
-      return characterName.value.length > 10
+      return characterName.value.length > 100
     })
 
     const setWarningMessage = () => {
