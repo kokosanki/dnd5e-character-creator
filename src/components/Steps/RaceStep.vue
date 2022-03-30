@@ -1,7 +1,8 @@
 <template>
   <div class="race-step">
     <h2 class="race-step__title">Character Race</h2>
-    <div v-for="(race, index) in races" :key="index">
+    <div v-if="isLoading">Loading...</div>
+    <div v-else v-for="(race, index) in races" :key="index">
       <input
         type="radio"
         :id="race.index"
@@ -45,11 +46,14 @@ export default defineComponent({
       store.commit('setCharacterRace', race)
     }
 
+    const isLoading: Ref<boolean> = ref(true)
     const getRaces = async () => {
       try {
         races.value = await Character.getRaces()
       } catch (err) {
         console.error(err)
+      } finally {
+        isLoading.value = false
       }
     }
 
@@ -68,6 +72,7 @@ export default defineComponent({
     )
 
     return {
+      isLoading,
       races,
       chosenRace,
       characterRace: computed(() => store.state.race)

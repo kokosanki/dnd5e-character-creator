@@ -15,13 +15,15 @@
 import { defineComponent } from 'vue'
 import NameStep from '@/components/Steps/NameStep.vue'
 import RaceStep from '@/components/Steps/RaceStep.vue'
+import ClassStep from '@/components/Steps/ClassStep.vue'
 import { stepsDictionary } from '@/utils/stepsDictionary'
 
 export default defineComponent({
   name: 'CharacterCreator',
   components: {
     NameStep,
-    RaceStep
+    RaceStep,
+    ClassStep
   },
   data () {
     return {
