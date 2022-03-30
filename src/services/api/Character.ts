@@ -1,10 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-
-type Race = {
-  index: number
-  name: string
-  url: string
-}
+import { Race, Class } from '@/services/api/types'
 
 const responseBody = (response: AxiosResponse) => response.data.results
 
@@ -13,5 +8,6 @@ const requests = {
 }
 
 export const Character = {
-  getRaces: (): Promise<Race[]> => requests.get('/races')
+  getRaces: (): Promise<Race[]> => requests.get('/races'),
+  getClasses: (): Promise<Class[]> => requests.get('/classes')
 }

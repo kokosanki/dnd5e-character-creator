@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     name: '',
-    race: ''
+    race: '',
+    characterClass: ''
   },
   mutations: {
     setCharacterName (state, val) {
@@ -11,6 +12,9 @@ export default createStore({
     },
     setCharacterRace (state, val) {
       state.race = val
+    },
+    setCharacterClass (state, val) {
+      state.characterClass = val
     }
   },
   getters: {
@@ -19,6 +23,9 @@ export default createStore({
     },
     characterRace (state) {
       return state.race
+    },
+    characterClass (state) {
+      return state.characterClass
     }
   },
   actions: {},
