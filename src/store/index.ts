@@ -4,7 +4,8 @@ export default createStore({
   state: {
     name: '',
     race: '',
-    characterClass: ''
+    characterClass: '',
+    characterAlignment: ''
   },
   mutations: {
     setCharacterName (state, val) {
@@ -15,6 +16,9 @@ export default createStore({
     },
     setCharacterClass (state, val) {
       state.characterClass = val
+    },
+    setCharacterAlignment (state, val) {
+      state.characterAlignment = val
     }
   },
   getters: {
@@ -26,6 +30,9 @@ export default createStore({
     },
     characterClass (state) {
       return state.characterClass
+    },
+    characterAlignment (state) {
+      return state.characterAlignment
     }
   },
   actions: {},

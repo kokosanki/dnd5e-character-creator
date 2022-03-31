@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { Race, Class } from '@/services/api/types'
+import { Race, Class, Alignment } from '@/services/api/types'
 
 const responseBody = (response: AxiosResponse) => response.data.results
 
@@ -9,5 +9,6 @@ const requests = {
 
 export const Character = {
   getRaces: (): Promise<Race[]> => requests.get('/races'),
-  getClasses: (): Promise<Class[]> => requests.get('/classes')
+  getClasses: (): Promise<Class[]> => requests.get('/classes'),
+  getAlignments: (): Promise<Alignment[]> => requests.get('/alignments')
 }
