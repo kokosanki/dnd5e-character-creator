@@ -16,6 +16,7 @@ import { defineComponent } from 'vue'
 import NameStep from '@/components/Steps/NameStep.vue'
 import RaceStep from '@/components/Steps/RaceStep.vue'
 import ClassStep from '@/components/Steps/ClassStep.vue'
+import AlignmentStep from '@/components/Steps/AlignmentStep.vue'
 import { stepsDictionary } from '@/utils/stepsDictionary'
 
 export default defineComponent({
@@ -23,7 +24,8 @@ export default defineComponent({
   components: {
     NameStep,
     RaceStep,
-    ClassStep
+    ClassStep,
+    AlignmentStep
   },
   data () {
     return {

@@ -9,3 +9,9 @@ export type Class = {
   name: string
   url: string
 }
+
+export type Alignment = {
+  index: number
+  name: string
+  url: string
+}
