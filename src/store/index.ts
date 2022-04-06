@@ -4,8 +4,11 @@ export default createStore({
   state: {
     name: '',
     race: '',
+    raceData: {},
     characterClass: '',
-    characterAlignment: ''
+    characterAlignment: '',
+    characterAbilityScores: [],
+    availableRolledStats: []
   },
   mutations: {
     setCharacterName (state, val) {
@@ -19,6 +22,15 @@ export default createStore({
     },
     setCharacterAlignment (state, val) {
       state.characterAlignment = val
+    },
+    setCharacterRaceData (state, val) {
+      state.raceData = val
+    },
+    setCharacterAbilityScores (state, val) {
+      state.characterAbilityScores = val
+    },
+    setRolledStats (state, val) {
+      state.availableRolledStats = val
     }
   },
   getters: {
@@ -28,11 +40,20 @@ export default createStore({
     characterRace (state) {
       return state.race
     },
+    characterRaceData (state) {
+      return state.raceData
+    },
     characterClass (state) {
       return state.characterClass
     },
     characterAlignment (state) {
       return state.characterAlignment
+    },
+    characterAbilityScores (state) {
+      return state.characterAbilityScores
+    },
+    availableRolledStats (state) {
+      return state.availableRolledStats
     }
   },
   actions: {},
