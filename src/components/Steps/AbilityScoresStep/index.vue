@@ -49,6 +49,9 @@ import { useStore } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
 import { RaceData } from '@/types/character'
 import { abilitiesDictionary } from '@/utils/abilitiesDictionary'
+import {
+  rollScore
+} from '@/components/Steps/AbilityScoresStep/calculations'
 
 type RolledStat = {
   stat: number
@@ -131,21 +134,6 @@ export default defineComponent({
     ])
 
     const availableScores: Ref<RolledStat[]> = ref([])
-
-    const rollADice = () => {
-      return Math.floor(Math.random() * 6 + 1)
-    }
-
-    const rollScore = () => {
-      const rolledStats: Ref<number[]> = ref([])
-
-      for (let index = 0; index < 4; index++) {
-        rolledStats.value.push(rollADice())
-      }
-
-      rolledStats.value.sort().shift()
-      return rolledStats.value.reduce((a, b) => a + b)
-    }
 
     const rollScores = () => {
       availableScores.value = []
