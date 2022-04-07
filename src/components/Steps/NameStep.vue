@@ -1,13 +1,8 @@
 <template>
   <div class="name-step">
-    <h2 class="name-step__title">Character Name</h2>
+    <h2 class="name-step__title dnd-basic-title">Character Name</h2>
     <p v-if="isNameTooLong" class="name-step__warning">{{ warningMessage }}</p>
-    <input
-      class="name-step__input"
-      v-model="characterName"
-      type="text"
-      placeholder="Please, type the character name"
-    />
+    <q-input outlined v-model="characterName" placeholder="Please, type the character name" />
   </div>
 </template>
 
@@ -72,10 +67,6 @@ export default defineComponent({
 </script>
 <style scoped lang="scss">
 .name-step {
-  &__title {
-    font-size: 30px;
-    margin-bottom: 40px;
-  }
   &__input {
     width: 100%;
   }
