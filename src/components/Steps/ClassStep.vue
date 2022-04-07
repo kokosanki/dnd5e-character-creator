@@ -1,15 +1,10 @@
 <template>
   <div class="class-step">
-    <h2 class="class-step__title">Character Class</h2>
-    <div v-if="isLoading">Loading...</div>
+    <h2 class="class-step__title dnd-basic-title">Character Class</h2>
+    <q-spinner-tail v-if="isLoading" color="primary" size="80px" />
+
     <div v-else v-for="(characterClass, index) in characterClasses" :key="index">
-      <input
-        type="radio"
-        :id="characterClass.index"
-        :value="characterClass.name"
-        v-model="chosenClass"
-      />
-      <label :for="characterClass.name">{{ characterClass.name }} </label>
+      <q-radio :id="characterClass.index" v-model="chosenClass" :val="characterClass.name" :label="characterClass.name" />
     </div>
   </div>
 </template>

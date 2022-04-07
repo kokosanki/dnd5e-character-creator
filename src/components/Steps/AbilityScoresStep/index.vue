@@ -1,41 +1,54 @@
 <template>
   <div class="ability-scores-step">
-    <h2 class="ability-scores-step__title">
+    <h2 class="ability-scores-step__title dnd-basic-title">
       Ability Scores for {{ characterRaceData.name }}
     </h2>
-    <h3>Roll character's ability scores</h3>
-    <div>
-      <button @click="rollScores">Roll</button>
-      <div v-if="availableScores.length">
-        <h4 class="ability-scores-step__header">available scores</h4>
-        <div
-          class="ability-scores-step__available-stats"
-          v-for="(score, index) in availableScores"
-          :key="index"
-        >
-          <div class="ability-scores-step__score">{{ score.stat }}</div>
-        </div>
-        <div v-for="(abilityScore, index) in abilityScores" :key="index">
-          <label>{{ abilityScore.name }}: </label>
-
-          <select
-            v-model="abilityScore.points"
-            name="allAvailableAbilityScores"
-            id="allAvailableAbilityScores"
+    <q-spinner-tail v-if="isLoading" color="primary" size="80px" />
+    <div v-else>
+      <h3 class="ability-scores-step__instruction">
+        Roll character's ability scores
+      </h3>
+      <div>
+        <q-btn
+          @click="rollScores"
+          color="grey-4"
+          text-color="primary"
+          glossy
+          unelevated
+          icon="fas fa-dice"
+          label="Roll stats"
+        />
+        <div v-if="availableScores.length">
+          <h4 class="ability-scores-step__header">available scores</h4>
+          <div
+            class="ability-scores-step__available-stats"
+            v-for="(score, index) in availableScores"
+            :key="index"
           >
-            <option :value="{ stat: 0, index: '', id: null }"></option>
-            <option
-              v-for="(score, index) in availableScores"
-              :disabled="isOptionDisabled(score, abilityScore)"
-              :key="index"
-              :value="score"
+            <div class="ability-scores-step__score">{{ score.stat }}</div>
+          </div>
+          <div v-for="(abilityScore, index) in abilityScores" :key="index">
+            <label>{{ abilityScore.name }}: </label>
+
+            <select
+              v-model="abilityScore.points"
+              name="allAvailableAbilityScores"
+              id="allAvailableAbilityScores"
             >
-              {{ score.stat }}
-            </option>
-          </select>
-          <span class="ability-scores-step__bonus">{{
-            printBonus(abilityScore.name)
-          }}</span>
+              <option :value="{ stat: 0, index: '', id: null }"></option>
+              <option
+                v-for="(score, index) in availableScores"
+                :disabled="isOptionDisabled(score, abilityScore)"
+                :key="index"
+                :value="score"
+              >
+                {{ score.stat }}
+              </option>
+            </select>
+            <span class="ability-scores-step__bonus">{{
+              printBonus(abilityScore.name)
+            }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -49,9 +62,7 @@ import { useStore } from 'vuex'
 import { v4 as uuidv4 } from 'uuid'
 import { RaceData } from '@/types/character'
 import { abilitiesDictionary } from '@/utils/abilitiesDictionary'
-import {
-  rollScore
-} from '@/components/Steps/AbilityScoresStep/calculations'
+import { rollScore } from '@/components/Steps/AbilityScoresStep/calculations'
 
 type RolledStat = {
   stat: number
@@ -214,7 +225,8 @@ export default defineComponent({
       isOptionDisabled,
       characterRaceData,
       abilitiesDictionary,
-      printBonus
+      printBonus,
+      isLoading
     }
   }
 })
@@ -234,6 +246,9 @@ export default defineComponent({
   }
   &__bonus {
     margin-left: 5px;
+  }
+  &__instruction {
+    font-size: 24px;
   }
 }
 </style>

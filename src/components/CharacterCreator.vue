@@ -3,10 +3,8 @@
     <h1 class="character-creator__title">DnD&nbsp;5e<br />Character Creator</h1>
     <component ref="currentStep" :is="activeStep" v-model:isInputInvalid="isInputInvalid"></component>
     <div class="character-creator__navigation-buttons">
-      <button :disabled="isFirstStep" @click="returnToPreviousStep">
-        Back
-      </button>
-      <button :disabled="isInputInvalid" @click="moveToNextStep">Next</button>
+      <q-btn color="primary" :disabled="isFirstStep" @click="returnToPreviousStep" label="Back" />
+      <q-btn color="primary" :disabled="isInputInvalid" @click="moveToNextStep" label="Next"/>
     </div>
   </div>
 </template>
@@ -59,8 +57,10 @@ export default defineComponent({
   min-height: 100vh;
   margin: 40px 20px;
   &__title {
-    font-size: 30px;
-    margin-bottom: 60px;
+    font-size: 36px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    line-height: 1.3;
   }
   &__navigation-buttons {
     display: flex;

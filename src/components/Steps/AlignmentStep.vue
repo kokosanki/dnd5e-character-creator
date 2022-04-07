@@ -1,15 +1,9 @@
 <template>
   <div class="alignment-step">
-    <h2 class="alignment-step__title">Character Alignment</h2>
-    <div v-if="isLoading">Loading...</div>
+    <h2 class="alignment-step__title dnd-basic-title">Character Alignment</h2>
+    <q-spinner-tail v-if="isLoading" color="primary" size="80px" />
     <div v-else v-for="(alignment, index) in alignments" :key="index">
-      <input
-        type="radio"
-        :id="alignment.index"
-        :value="alignment.name"
-        v-model="chosenAlignment"
-      />
-      <label :for="alignment.name">{{ alignment.name }} </label>
+      <q-radio :id="alignment.index" v-model="chosenAlignment" :val="alignment.name" :label="alignment.name" />
     </div>
   </div>
 </template>
