@@ -7,6 +7,7 @@ export default createStore({
     raceData: {},
     characterClass: '',
     characterAlignment: '',
+    characterBackground: {},
     characterAbilityScores: [],
     availableRolledStats: []
   },
@@ -28,6 +29,9 @@ export default createStore({
     },
     setCharacterAbilityScores (state, val) {
       state.characterAbilityScores = val
+    },
+    setCharacterBackground (state, val) {
+      state.characterBackground = val
     },
     setRolledStats (state, val) {
       state.availableRolledStats = val
@@ -51,6 +55,9 @@ export default createStore({
     },
     characterAbilityScores (state) {
       return state.characterAbilityScores
+    },
+    characterBackground (state) {
+      return state.characterBackground
     },
     availableRolledStats (state) {
       return state.availableRolledStats
