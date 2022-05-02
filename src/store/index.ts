@@ -9,7 +9,13 @@ export default createStore({
     characterAlignment: '',
     characterBackground: {},
     characterAbilityScores: [],
-    availableRolledStats: []
+    availableRolledStats: [],
+    characterCharacteristics: {
+      bond: '',
+      flaw: '',
+      ideal: '',
+      personalityTrait: ''
+    }
   },
   mutations: {
     setCharacterName (state, val) {
@@ -35,6 +41,9 @@ export default createStore({
     },
     setRolledStats (state, val) {
       state.availableRolledStats = val
+    },
+    setCharacterCharacteristics (state, val) {
+      state.characterCharacteristics = val
     }
   },
   getters: {
@@ -58,6 +67,9 @@ export default createStore({
     },
     characterBackground (state) {
       return state.characterBackground
+    },
+    characterCharacteristics (state) {
+      return state.characterCharacteristics
     },
     availableRolledStats (state) {
       return state.availableRolledStats

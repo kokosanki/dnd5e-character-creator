@@ -17,6 +17,7 @@ import ClassStep from '@/components/Steps/ClassStep.vue'
 import AlignmentStep from '@/components/Steps/AlignmentStep.vue'
 import AbilityScoresStep from '@/components/Steps/AbilityScoresStep/index.vue'
 import BackgroundStep from '@/components/Steps/BackgroundStep/index.vue'
+import CharacteristicsStep from '@/components/Steps/CharacteristicsStep.vue'
 import { stepsDictionary } from '@/utils/stepsDictionary'
 
 export default defineComponent({
@@ -27,7 +28,8 @@ export default defineComponent({
     ClassStep,
     AlignmentStep,
     AbilityScoresStep,
-    BackgroundStep
+    BackgroundStep,
+    CharacteristicsStep
   },
   data () {
     return {
