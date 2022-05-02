@@ -158,7 +158,6 @@ export const backgrounds = [
     characteristics: {
       personalityTrait: [
         'I judge people by their actions, not their words.',
-        'I judge people by their actions, not their words.',
         'When I set my mind to something, I follow through no matter what gets in my way.',
         'I have a strong sense of fair play and always try to find the most equitable solution to arguments.',
         'I’m confident in my own abilities and do what I can to instill confidence in others.',
