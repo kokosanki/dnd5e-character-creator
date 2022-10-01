@@ -10,10 +10,39 @@ export type Class = {
   url: string
 }
 
+export type Language = {
+  index: number
+  name: string
+  url: string
+}
+
 export type Alignment = {
   index: number
   name: string
   url: string
+}
+
+export type RolledStat = {
+  stat: number
+  id: string | null
+}
+
+export type Score = {
+  name: string
+  index: string
+  points: RolledStat
+}
+
+export type LanguageOption = {
+  option_type: string,
+  item: Language
+}
+
+export type CharacterCharacteristics = {
+  personalityTrait: string
+  ideal: string
+  bond: string
+  flaw: string
 }
 
 export type RaceData = {
@@ -60,6 +89,14 @@ export type RaceData = {
       url: string
     }
   ]
+  language_options?: {
+    choose: number,
+    type: string,
+    from: {
+      option_set_type: string,
+      options: LanguageOption[]
+    }
+  }
   language_desc: string
   traits: [
     {

@@ -1,14 +1,16 @@
 import { createStore } from 'vuex'
+import { StoreType } from '@/store/types'
 
 export default createStore({
   state: {
     name: '',
     race: '',
-    raceData: {},
+    raceData: null,
     characterClass: '',
     characterAlignment: '',
-    characterBackground: {},
+    characterBackground: null,
     characterAbilityScores: [],
+    characterLanguages: [],
     availableRolledStats: [],
     characterCharacteristics: {
       bond: '',
@@ -16,7 +18,7 @@ export default createStore({
       ideal: '',
       personalityTrait: ''
     }
-  },
+  } as StoreType,
   mutations: {
     setCharacterName (state, val) {
       state.name = val
@@ -44,6 +46,9 @@ export default createStore({
     },
     setCharacterCharacteristics (state, val) {
       state.characterCharacteristics = val
+    },
+    setCharacterLanguages (state, val) {
+      state.characterLanguages = val
     }
   },
   getters: {
@@ -52,6 +57,9 @@ export default createStore({
     },
     characterRace (state) {
       return state.race
+    },
+    characterLanguages (state) {
+      return state.characterLanguages
     },
     characterRaceData (state) {
       return state.raceData
@@ -73,6 +81,9 @@ export default createStore({
     },
     availableRolledStats (state) {
       return state.availableRolledStats
+    },
+    defaultCharacterLanguages (state) {
+      return state.raceData?.languages.map((language) => language.index) || []
     }
   },
   actions: {},

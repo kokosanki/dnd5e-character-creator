@@ -1,5 +1,6 @@
 <template>
-  <div class="ability-scores-step">
+  <q-spinner-tail v-if="isLoading" color="primary" size="80px" />
+  <div v-else class="ability-scores-step">
     <h2 class="ability-scores-step__title dnd-basic-title">
       Ability Scores for {{ characterRaceData.name }}
     </h2>
